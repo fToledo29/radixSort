@@ -35,6 +35,9 @@ const countingSort = (inpArr, size, pos) => {
 	return outputArr;
 }
 
+/**
+ * 
+ */
 const radixSort = (arr) => {
 
 	/**
@@ -47,7 +50,7 @@ const radixSort = (arr) => {
 	 * Getting the maximum value inside the given array.
 	 * Helps us to loop through the position of the digit to be sorted.
 	 */
-	const maxValue = arr.reduce((acc, val, ind) => acc > val ? acc : val, 0);
+	const maxValue = arr.reduce((acc, val, ind) => acc > val ? acc : val, 0); // O(n);
 
 	// Start the initial position (1/10/100/1000...n)
 	// (expo/pos/div)
@@ -55,14 +58,14 @@ const radixSort = (arr) => {
 
 	/**
 	 * The loop depends mostly on the maximum value of the given array.
-	 * If mmax value is 11 it will loop only 2 times, if it's 111 will
+	 * If max value is 11 it will loop only 2 times, if it's 111 will
 	 * loop 3 times 1111 4 times and so on.
 	 */
 	while(parseInt(maxValue / pos, 10) > 0) {
 
 		/**
-		 * Given array will get a sorted from the least significant digit
-		 * to the most significant digit. Ex. 111 will start from rigth
+		 * Given array will get sorted from the Least Significant Digit (LSD)
+		 * to the Most Significant Digit (MSD). Ex. 111 will start from rigth
 		 * to left:  1 <- 1 <- 1
 		 * 
 		 * So "pos" will help with it
@@ -84,4 +87,4 @@ const inputArr = [170, 45, 75, 90, 802, 24, 2, 66];
 
 const res = radixSort(inputArr);
 
-console.log(res);
+console.log(res); 
